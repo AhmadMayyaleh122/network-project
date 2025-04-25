@@ -1,0 +1,87 @@
+#tabPane {
+    -fx-tab-min-width: 25em;
+    -fx-tab-max-width: 25em;
+    -fx-tab-min-height: 3em;
+    -fx-tab-max-height: 3em;
+    -fx-padding: 0 -1 -1 0;
+}
+
+.tab-pane > .tab-header-area {
+    -fx-padding: 10 0 10 0; /* Adjusted padding for height */
+}
+
+.tab .tab-label {
+    -fx-background-color: transparent;
+    -fx-alignment: CENTER;
+    -fx-text-fill: #A0A5B1; /* Soft gray color */
+}
+
+.tab:selected .tab-label {
+    -fx-background-color: transparent;
+    -fx-alignment: CENTER;
+    -fx-text-fill: #1A73E8; /* Bright blue for selected */
+}
+
+/* Styling the Tabs */
+.tab {
+    -fx-background-insets: 10;
+    -fx-background-radius: 5; /* Slightly rounded corners */
+    -fx-padding: 0;
+}
+
+/* General Tab Label Style */
+.tab .tab-label {
+    -fx-font-size: 20; /* Slightly smaller font size */
+    -fx-text-fill: #E0E0E0; /* Light gray */
+    -fx-font-weight: bold;
+}
+
+/* Styling the selected Tab */
+.tab:selected {
+    -fx-background-color: #E6F1FF; /* Light blue background */
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 5 5 0 0; /* Rounded top corners */
+    -fx-border-width: 2 0 0 0; /* Reduced border width */
+    -fx-border-color: #1A73E8; /* Blue border */
+}
+
+.tab:focused {
+    -fx-focus-color: transparent;
+}
+
+.tab-pane:bottom > .tab-header-background {
+    -fx-focus-color: transparent;
+}
+
+/* Styling the TabPane */
+.tab-pane {
+    -fx-tab-min-width: 120px;
+}
+
+/* Styling the Tabs */
+.tab {
+    -fx-background-color: #24292E; /* Darker gray */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+/* Styling the selected Tab */
+.tab:selected {
+    -fx-background-color: #F0F0F0; /* Light background for selected tab */
+}
+
+/* Styling the Tab Content Area */
+.tab-pane > .tab-content-area {
+    -fx-background-color: #FFFFFF; /* Clean white for content area */
+}
+
+/* Styling the Tab Headers Area */
+.tab-header-area {
+    -fx-background-color: #24292E; /* Consistent dark background */
+}
+
+/* Styling the Tab Header Background */
+.tab-header-background {
+    -fx-background-color: #24292E; /* Consistent dark header */
+    -fx-background-radius: 15 0 0 0;
+}

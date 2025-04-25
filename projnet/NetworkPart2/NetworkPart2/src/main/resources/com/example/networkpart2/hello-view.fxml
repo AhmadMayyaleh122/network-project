@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="774.0" prefWidth="1073.0" style="-fx-background-color: #D3D3D3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.networkpart2.Client">
+   <children>
+      <Button fx:id="deleteConv" layoutX="534.0" layoutY="503.0" mnemonicParsing="false" onAction="#onDeleteConv" prefHeight="46.0" prefWidth="178.0" style="-fx-background-color: #B22222; -fx-text-fill: #ffffff; -fx-font-size: 16px; -fx-padding: 10px; -fx-background-radius: 25px;" text="Delete Conversation" />
+      <Button fx:id="deleteMsg" layoutX="532.0" layoutY="447.0" mnemonicParsing="false" onAction="#onDeleteMsg" prefHeight="46.0" prefWidth="178.0" style="-fx-background-color: #B22222; -fx-text-fill: #ffffff; -fx-font-size: 16px; -fx-padding: 10px; -fx-background-radius: 25px;" text="Delete Message" />
+      <TextArea fx:id="sendMessageField" layoutX="22.0" layoutY="581.0" prefHeight="118.0" prefWidth="510.0" style="-fx-background-color: #ffffff; -fx-border-color: #bdc3c7; -fx-padding: 5px;" />
+      <Label layoutX="22.0" layoutY="550.0" prefHeight="30.0" prefWidth="127.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 20px; -fx-text-fill: #34495e;" text="Send MSG" />
+      <Label layoutX="12.0" layoutY="715.0" prefHeight="42.0" prefWidth="86.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 23px; -fx-text-fill: #34495e;" text="Status:" />
+      <Label fx:id="status" layoutX="98.0" layoutY="724.0" prefHeight="30.0" prefWidth="551.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 23px; -fx-text-fill: #34495e;" />
+      <ListView fx:id="chatField" layoutX="14.0" layoutY="299.0" prefHeight="245.0" prefWidth="502.0" style="-fx-background-color: #ffffff; -fx-border-color: #bdc3c7; -fx-border-radius: 10;" />
+      <ListView fx:id="onlineUsers" layoutX="773.0" layoutY="95.0" onMouseClicked="#handleItemClick" prefHeight="470.0" prefWidth="261.0" style="-fx-background-color: #ffffff; -fx-border-color: #bdc3c7; -fx-border-radius: 10;" />
+      <Label layoutX="775.0" layoutY="55.0" prefHeight="27.0" prefWidth="144.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 21px; -fx-text-fill: #34495e;" text="Online Users:" />
+      <Button fx:id="logout" layoutX="830.0" layoutY="581.0" mnemonicParsing="false" onAction="#onLogout" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #808080; -fx-text-fill: #ffffff; -fx-font-size: 16px; -fx-padding: 10px; -fx-background-radius: 15px;" text="logout" textOverrun="LEADING_ELLIPSIS" underline="true">
+         <font>
+            <Font name="Bold Italic Art" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="NONE" />
+         </cursor></Button>
+      <Label layoutX="16.0" layoutY="17.0" prefHeight="27.0" prefWidth="163.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 18px; -fx-text-fill: #34495e;" text="Last Login was in : " />
+      <Label fx:id="lastLoginLbl" layoutX="161.0" layoutY="15.0" prefHeight="30.0" prefWidth="270.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 14px; -fx-text-fill: #34495e;" />
+      <ChoiceBox fx:id="interfaceBox2" layoutX="505.0" layoutY="14.0" prefHeight="39.0" prefWidth="163.0" style="-fx-background-color: #ffffff; -fx-border-color: #bdc3c7;" />
+      <Label layoutX="434.0" layoutY="15.0" prefHeight="27.0" prefWidth="102.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 21px; -fx-text-fill: #34495e;" text="Status" />
+      <AnchorPane layoutX="24.0" layoutY="67.0" prefHeight="192.0" prefWidth="250.0" style="-fx-border-color: #bdc3c7; -fx-border-radius: 5;">
+         <children>
+            <Label layoutX="7.0" layoutY="45.0" prefHeight="19.0" prefWidth="95.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 15px; -fx-text-fill: #34495e;" text="User Name :" />
+            <Label layoutX="17.0" layoutY="90.0" prefHeight="22.0" prefWidth="76.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 15px; -fx-text-fill: #34495e;" text="Password:" />
+            <TextField fx:id="username" layoutX="102.0" layoutY="41.0" prefHeight="42.0" prefWidth="95.0" style="-fx-border-color: #bdc3c7; -fx-background-color: #ffffff; -fx-padding: 5px;" />
+            <Button fx:id="login" layoutX="21.0" layoutY="131.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="40.0" prefWidth="199.0" style="-fx-background-color: #808080; -fx-text-fill: #ffffff; -fx-font-size: 16px; -fx-padding: 10px; -fx-background-radius: 20;" text="Login" textFill="#00ff0d" textOverrun="CENTER_ELLIPSIS" wrapText="true" />
+            <TextField fx:id="password" layoutX="102.0" layoutY="86.0" prefHeight="42.0" prefWidth="95.0" style="-fx-border-color: #bdc3c7; -fx-background-color: #ffffff; -fx-padding: 5px;" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="296.0" layoutY="71.0" prefHeight="184.0" prefWidth="378.0" style="-fx-border-color: #bdc3c7;">
+         <children>
+            <Label layoutX="26.0" layoutY="14.0" prefHeight="22.0" prefWidth="95.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 18px; -fx-text-fill: #34495e;" text="Local Ip:" />
+            <Label layoutX="25.0" layoutY="90.0" prefHeight="23.0" prefWidth="114.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 18px; -fx-text-fill: #34495e;" text="Local port:" />
+            <TextField fx:id="localIp" layoutX="22.0" layoutY="41.0" prefHeight="42.0" prefWidth="144.0" style="-fx-border-color: #bdc3c7; -fx-background-color: #ffffff; -fx-padding: 5px;" />
+            <TextField fx:id="localPort" layoutX="25.0" layoutY="117.0" prefHeight="42.0" prefWidth="144.0" style="-fx-border-color: #bdc3c7; -fx-background-color: #ffffff; -fx-padding: 5px;" />
+            <Label layoutX="183.0" layoutY="14.0" prefHeight="23.0" prefWidth="136.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 18px; -fx-text-fill: #34495e;" text="Tcp Server Ip:" />
+            <Label layoutX="185.0" layoutY="94.0" prefHeight="23.0" prefWidth="150.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 18px; -fx-text-fill: #34495e;" text="Tcp Server Port:" />
+            <TextField fx:id="serverIp" layoutX="185.0" layoutY="41.0" prefHeight="42.0" prefWidth="144.0" style="-fx-border-color: #bdc3c7; -fx-background-color: #ffffff; -fx-padding: 5px;" />
+            <TextField fx:id="serverPort" layoutX="185.0" layoutY="117.0" prefHeight="42.0" prefWidth="144.0" style="-fx-border-color: #bdc3c7; -fx-background-color: #ffffff; -fx-padding: 5px;" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="720.0" layoutY="19.0" prefHeight="19.0" prefWidth="157.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 15px; -fx-text-fill: #34495e;" text="Available Interface" />
+      <ChoiceBox fx:id="interfaceBox" layoutX="855.0" layoutY="17.0" prefHeight="27.0" prefWidth="186.0" style="-fx-background-color: #ffffff; -fx-border-color: #bdc3c7;" />
+      <Button fx:id="onSenNdAllMsg" layoutX="545.0" layoutY="581.0" mnemonicParsing="false" onAction="#onSendButton" prefHeight="30.0" prefWidth="136.0" style="-fx-background-color: #808080; -fx-text-fill: #ffffff; -fx-font-size: 16px; -fx-padding: 10px; -fx-background-radius: 15px;" text="send" />
+      <Button fx:id="onSendAllMsg1" layoutX="545.0" layoutY="640.0" mnemonicParsing="false" onAction="#onSendAllMsg" prefHeight="46.0" prefWidth="136.0" style="-fx-background-color: #808080; -fx-text-fill: #ffffff; -fx-font-size: 16px; -fx-padding: 10px; -fx-background-radius: 15px;" text="send to ALL" />
+      <Label fx:id="ttttt" layoutX="12.0" layoutY="268.0" prefHeight="30.0" prefWidth="322.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 14px; -fx-text-fill: #34495e;" />
+      <Label layoutX="538.0" layoutY="275.0" prefHeight="23.0" prefWidth="150.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 18px; -fx-text-fill: #34495e;" text="Remote IP:" />
+      <Label layoutX="534.0" layoutY="353.0" prefHeight="23.0" prefWidth="127.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 18px; -fx-text-fill: #34495e;" text="Remote Port:" />
+      <TextField fx:id="remoteIp" layoutX="541.0" layoutY="303.0" prefHeight="42.0" prefWidth="150.0" style="-fx-border-color: #bdc3c7; -fx-background-color: #ffffff; -fx-padding: 5px;" />
+      <TextField fx:id="remotePort" layoutX="541.0" layoutY="380.0" prefHeight="42.0" prefWidth="150.0" style="-fx-border-color: #bdc3c7; -fx-background-color: #ffffff; -fx-padding: 5px;" />
+   </children>
+</AnchorPane>

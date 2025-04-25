@@ -1,0 +1,67 @@
+.leftpane {
+    -fx-background-color: #f8f8f8; /* Soft white for a lighter look */
+}
+
+.rightpane {
+    -fx-background-color: #f8f8f8; /* Soft white for consistency */
+}
+
+.signinpane {
+    -fx-background-color: #ffffff; /* Clean white background */
+    -fx-border-radius: 15px; /* Rounded corners */
+    -fx-border-color: #0e89b4; /* Light blue border for visibility */
+    -fx-border-width: 2px; /* Subtle border width */
+}
+
+.sidenavigation {
+    -fx-background-radius: 0; /* Sharp corners */
+    -fx-border-width: 1px 1px 1px 0; /* Right, bottom, top borders */
+    -fx-border-color: #00004d; /* Deep blue border */
+    -fx-background-color: #1d1d23; /* Darker background for contrast */
+}
+
+.memberpane {
+    -fx-border-radius: 15px; /* Rounded corners */
+    -fx-border-width: 2px; /* Defined border width */
+    -fx-border-color: #0e89b4; /* Light blue border */
+}
+
+.classpane {
+    -fx-background-color: #2c2c36; /* Darker background for better contrast */
+}
+
+.attendancepane {
+    -fx-background-radius: 2px; /* Subtle rounding */
+    -fx-background-color: #ffffff; /* Clean white background */
+    -fx-border-radius: 15px; /* Rounded corners */
+    -fx-border-width: 2px; /* Defined border width */
+    -fx-border-color: #0e89b4; /* Light blue border */
+}
+
+.addattendancepane {
+    -fx-border-radius: 0px; /* Sharp corners */
+    -fx-border-width: 2px; /* Defined border width */
+    -fx-border-color: #0e89b4; /* Light blue border */
+}
+
+.topattendancepane {
+    -fx-background-color: #ffffff; /* Clean white background */
+    -fx-border-radius: 0px; /* Sharp corners */
+    -fx-border-width: 2px; /* Defined border width */
+    -fx-border-color: #0e89b4; /* Light blue border */
+}
+
+.hourspane {
+    -fx-border-radius: 15px; /* Rounded corners */
+    -fx-background-color: #ffffff; /* Clean white background */
+}
+
+.root {
+    -fx-border-color: #000; /* Black border */
+    -fx-background-radius: 10; /* Rounded edges */
+    -fx-background-color: #f1f1f1; /* Light gray for contrast */
+}
+
+.staffpane {
+    -fx-background-color: #2c2c36; /* Darker background for consistency */
+}

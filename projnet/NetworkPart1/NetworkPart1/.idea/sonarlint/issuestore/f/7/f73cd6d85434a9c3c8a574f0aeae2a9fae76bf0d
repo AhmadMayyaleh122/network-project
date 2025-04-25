@@ -1,0 +1,44 @@
+
+•
+java:S1192«"QDefine a constant instead of duplicating this literal "user with port: " 7 times.(€ÇùĞ8‡€ÉÄÿ1J$a2dd1618-243e-44aa-b24f-d04331b2246a
+
+java:S1192«"JDefine a constant instead of duplicating this literal " and IP: " 7 times.(€ÇùĞ8ˆ€ÉÄÿ1J$8cf597d1-71c5-4b9f-8422-378c415d460a
+“	java:S117n"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜğÜ8‰€ÉÄÿ1J$ff0b68b9-58a0-4cef-8748-0fb0e26b9e46
+“	java:S117o"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡€¬8‰€ÉÄÿ1J$b6c02ccd-ce59-4ca2-a1e5-b1e56022942c
+’	java:S117s"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à›úC8‰€ÉÄÿ1J$d83260a9-6268-4887-95db-0aa58080d376
+“	java:S117t"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ìß¥Ğ8‰€ÉÄÿ1J$28b66ee6-f40a-42d5-9bf9-5664981db879
+”	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ‘á8‰€ÉÄÿ1J$6d1dd9b8-3095-4c8b-91cb-5a664a6bef22
+”	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ä÷û8‰€ÉÄÿ1J$669c0fd2-8505-4e38-8465-dc2c120d82ee
+™	java:S117’"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌØå¯ÿÿÿÿÿ8‰€ÉÄÿ1J$c900c42d-0433-4caa-bf73-bd7fad68a3b4
+q
+java:S5411¬"(Use a primitive boolean expression here.(ıü‡Ìûÿÿÿÿ8‹€ÉÄÿ1J$17e0a459-4b17-4fde-aff8-e41ab1692e00
+‘
+java:S2095ç"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(‰æİøÿÿÿÿ8Õ€ÉÄÿ1J$59a415d9-4b78-4f85-bba8-f1313e0244ac
+’	java:S116S"QRename this field "Socket" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äšÓS8×€ÉÄÿ1J$151b31fb-277c-4af5-83d4-df0b411aaff4
+	java:S116T"VRename this field "SendMessage" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…¨¼Ğıÿÿÿÿ8×€ÉÄÿ1J$d67151e6-e753-4eb1-aa4f-2b412f0237cf
+
+java:S1858]"H"getHostAddress" returns a string, there's no need to call "toString()".(›½µˆùÿÿÿÿ8Ş€ÉÄÿ1J$cd98b4fc-a0d3-41b5-a76f-950d8e1537b4
+•	java:S100j"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿÏ¹ÿøÿÿÿÿ8à€ÉÄÿ1J$6ad63f0a-2d4f-43fa-8cf8-98f658efe4a0
+–	java:S100‹"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æéŠìúÿÿÿÿ8å€ÉÄÿ1J$2c99348d-23b6-4c0b-8540-7ee3e20ba126
+	java:S125¸"<This block of commented-out lines of code should be removed.(•Ñ¥À8ë€ÉÄÿ1J$df48710b-35db-4fdc-a6cb-dbead80eae60
+	java:S125Ü"<This block of commented-out lines of code should be removed.(•Ñ¥À8í€ÉÄÿ1J$97fc7406-2254-4a07-9de7-55208f347faf
+p
+java:S1602­",Remove useless curly braces around statement(…Öçë8ú€ÉÄÿ1J$8e6b4c4b-06b2-472a-abd4-171252bf1fdc
+n	java:S106Ã"+Replace this use of System.out by a logger.(¡õÈå8ü€ÉÄÿ1J$89bbab6f-3005-49b6-b543-cb87b9980ea4
+p
+java:S1602Õ",Remove useless curly braces around statement(…Öçë8ş€ÉÄÿ1J$05c319af-3d7c-4c94-804a-996aeab031a1
+p
+java:S1602×",Remove useless curly braces around statement(ÃÉş©8ş€ÉÄÿ1J$0bf289c7-67a0-4f91-9c3f-2fe9a905cd0e
+‘	java:S100İ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦ı­8ş€ÉÄÿ1J$cce36a55-4e6b-4fdd-83d4-f2c5df3a857a
+n	java:S106ê"+Replace this use of System.out by a logger.(’ôÆà8ÉÄÿ1J$2375e3dd-46d0-4b09-a020-77fd295f9d9a
+n	java:S106ì"+Replace this use of System.out by a logger.(Àûå 8ÉÄÿ1J$fb390a94-a82d-4c56-96d3-34ea4db103ce
+
+java:S1128"KRemove this unused import 'javafx.collections.transformation.FilteredList'.(¼¯¦8‚ÉÄÿ1J$27379b46-77ee-4d5c-98ab-5bb7695f1179
+
+java:S1128"KRemove this unused import 'javafx.scene.control.cell.PropertyValueFactory'.(àÎ¬õ8‚ÉÄÿ1J$3437a755-0037-42d1-b5fc-1499ee25080b
+}
+java:S1128":Remove this unused import 'javafx.scene.layout.StackPane'.(™÷èò8‚ÉÄÿ1J$824b1397-ed44-46fc-83cb-3d6381e93806
+z
+java:S1128"7Remove this unused import 'javafx.scene.text.TextFlow'.(Šàá8‚ÉÄÿ1J$374df6f0-2d5d-447b-abe4-30262b7c77bc
+h
+java:S3398‹"Move this method into "P2PCon".(æéŠìúÿÿÿÿ8ƒÉÄÿ1J$279862d3-cecf-4e31-a217-3f268df85480

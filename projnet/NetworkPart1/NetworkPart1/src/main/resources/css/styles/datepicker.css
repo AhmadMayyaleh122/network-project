@@ -1,0 +1,34 @@
+.date-picker {
+    -fx-font-size: 14px; /* Set the font size */
+    -fx-prompt-text-fill: #888888; /* Softer gray for prompt text */
+    -fx-background-color: #007ACC; /* Bright blue background */
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: #1c1c24; /* Dark background for the arrow button */
+    -fx-text-fill: white; /* White arrow color for visibility */
+}
+
+.date-picker .arrow-button:hover {
+    -fx-background-color: #005f99; /* Darker blue on hover */
+}
+
+.date-picker .arrow-button:pressed {
+    -fx-background-color: #004d7a; /* Even darker blue when pressed */
+}
+
+.date-picker .text-field {
+    -fx-control-inner-background: #1c1c24; /* Dark inner background */
+    -fx-background-radius: 10; /* Rounded corners */
+    -fx-background-color: #1c1c24; /* Match arrow button background */
+    -fx-text-fill: white; /* White text for contrast */
+}
+
+.date-picker .text-field:hover {
+    -fx-background-color: #f0f0f0; /* Light gray on hover */
+    -fx-border-color: #007ACC; /* Bright blue border on hover */
+}
+
+.date-picker .text-field:focused {
+    -fx-border-color: #005f99; /* Darker blue border when focused */
+}

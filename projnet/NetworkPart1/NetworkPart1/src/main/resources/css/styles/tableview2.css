@@ -1,0 +1,63 @@
+.table-view {
+    -fx-background-color: #2a2a30; /* Darker background */
+    -fx-border-color: #4caf50; /* Green border */
+    -fx-border-radius: 8px;
+    -fx-text-fill: #e0e0e0; /* Light gray text */
+}
+
+.table-view .column-header {
+    -fx-background-color: #2a2a30; /* Match table background */
+    -fx-text-background-color: #e0e0e0; /* Light gray text */
+    -fx-border-radius: 0px;
+    -fx-border-color: #4caf50; /* Green border */
+    -fx-border-width: 1px 0px 2px 0px;
+    -fx-font-size: 16px; /* Slightly larger font size */
+    -fx-font-weight: bold; /* Bold header text */
+}
+
+.table-view .table-cell {
+    -fx-border-color: transparent;
+    -fx-padding: 4 0 4 12px; /* Increased padding for better spacing */
+    -fx-cell-size: 90px;
+}
+
+.table-row-cell {
+    -fx-background-color: #2a2a30; /* Match table background */
+    -fx-padding: 0.6em;
+    -fx-text-background-color: #e0e0e0; /* Light gray text */
+    -fx-font-weight: bold; /* Remove italic */
+    -fx-cell-size: 40px;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: rgba(156, 204, 101, 0.3); /* Light green on hover */
+    -fx-text-background-color: #4caf50; /* Darker green text on hover */
+}
+
+.table-row-cell:selected {
+    -fx-background-color: rgba(156, 204, 101, 0.5); /* Slightly darker green */
+    -fx-text-background-color: #4caf50; /* Darker green text when selected */
+}
+
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent; /* Keep transparent */
+}
+
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0; /* Keep buttons hidden */
+    -fx-padding: 2; /* Keep padding */
+}
+
+.table-view .virtual-flow .scroll-bar:vertical .thumb {
+    -fx-background-color: linear-gradient(to bottom, #4caf50, #2a2a30); /* Green gradient thumb */
+}
+
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color: linear-gradient(to bottom, #4caf50, #2a2a30); /* Green gradient thumb */
+}

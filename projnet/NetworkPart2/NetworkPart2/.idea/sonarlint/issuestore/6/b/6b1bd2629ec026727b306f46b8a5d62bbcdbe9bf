@@ -1,0 +1,51 @@
+
+r
+java:S37400"/Provide the parametrized type for this generic.(•ğ°£8õôŞ€2J$d5e42b76-c3e6-430a-b3f4-fb4c450f5a90
+r
+java:S37400"/Provide the parametrized type for this generic.(•ğ°£8õôŞ€2J$dfa1c0ad-21f1-4b09-92be-b588189691c1
+r
+java:S3740¾"/Provide the parametrized type for this generic.(ğ¦8õôŞ€2J$983448e3-172b-4436-9330-72639b457320
+s
+java:S3740¿"/Provide the parametrized type for this generic.(«“Ëá8õôŞ€2J$39dd3ed6-87db-43f3-b79f-8f4d2971db13
+~
+java:S1141Ó"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8÷ôŞ€2J$106d35fe-ed12-48cc-8e8e-637347be8876
+`
+java:S1643Å"Use a StringBuilder instead.(­’¨é8ùôŞ€2J$a9783399-6d9f-488c-a353-47ae6269f61c
+	java:S101·"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(È¼ñ„8úôŞ€2J$3864aacd-4077-4674-85a0-d470158a9f7d
+u
+java:S1153Å"1Directly append the argument of String.valueOf().(­’¨é8ıôŞ€2J$da64b527-d522-453f-a9f7-7ff4d4710c2e
+u
+java:S1153È"1Directly append the argument of String.valueOf().(™”›½8ıôŞ€2J$98672761-a860-43c0-812d-89ffa14f6d9e
+z
+java:S2589<"7Remove this expression which always evaluates to "true"(Í¿Ûã8İøŞ€2J$70579508-bc8b-4540-a16b-b1efe1d37144
+–	java:S116-"ORename this field "Port" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬‡Øáûÿÿÿÿ8ßøŞ€2J$1e6c3ee8-46a4-4136-83e9-17b58ceda811
+
+java:S1450/"URemove the "socket" field and declare it as a local variable in the relevant methods.(ë“ä‚øÿÿÿÿ8âøŞ€2J$7b1bc995-4196-4da7-8163-f6d1b622ea8d
+…
+java:S1854K"=Remove this useless assignment to local variable "isNumbers".(ºªü’øÿÿÿÿ8ìøŞ€2J$467c32bb-84ce-4cc3-be86-136e2171a50e
+}	java:S125N"<This block of commented-out lines of code should be removed.(œºåX8úøŞ€2J$b454c47e-462b-4cc8-a1d1-e0c7d2a28ef7
+t
+java:S1172T"2Remove this unused method parameter "actionEvent".(ÿ•ûv8ûøŞ€2J$54806146-2724-48d9-94b8-e15757078f02
+}
+java:S1161w":Add the "@Override" annotation above this method signature(“–ış8”ùŞ€2J$88c15938-4a94-48bb-beaa-5c21dec1a407
+l	java:S108‰")Either remove or fill this block of code.(ëÅ‚†8˜ùŞ€2J$19315479-dc65-4c93-a471-944b922af137
+•	java:S116”"MRename this field "ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ•Æşÿÿÿÿ8˜ùŞ€2J$1b7703fe-2d92-4256-9224-403abe4efb5d
+~
+java:S1161œ":Add the "@Override" annotation above this method signature(“–ış8™ùŞ€2J$24c62948-d472-418c-b31f-77864ce1b626
+l	java:S108®")Either remove or fill this block of code.(Ùáóù8œùŞ€2J$351465ab-380b-4b81-ba2f-89fda19f3a95
+Å
+java:S1186¸"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ñè€è8ùŞ€2J$04821a70-29ea-43d9-a107-237a1df28bec
+~
+java:S1161»":Add the "@Override" annotation above this method signature(“–ış8ùŞ€2J$d1bcac99-1e01-49d3-a606-9ebb7c5f7e86
+d
+java:S2129½" Remove this "String" constructor(â˜Ê”8 ùŞ€2J$1f8d7456-e883-4073-a54d-8997763dadac
+p
+java:S1602À",Remove useless curly braces around statement(ÃÉş©8¡ùŞ€2J$b5ea1c0b-f21e-43a1-a3e4-c4364e46f348
+p
+java:S1602É",Remove useless curly braces around statement(ÃÉş©8£ùŞ€2J$4e334771-28b1-4998-b2c1-8e94b099c4be
+Ç
+java:S1130ß"~Remove the declaration of thrown exception 'javax.swing.text.BadLocationException', as it cannot be thrown from method's body.(ûÉ¾¾ùÿÿÿÿ8¦ùŞ€2J$bd8e525c-8cd7-4f6d-903b-3d759dfef382
+h
+java:S1128"%Remove this unused import 'java.awt'.(ï´µ©8Š­Ï€2J$4f8b9db8-74c9-4f31-8a6f-2577192ef0e3
+s
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8‹­Ï€2J$639588ec-b498-44df-9190-4df731cec596

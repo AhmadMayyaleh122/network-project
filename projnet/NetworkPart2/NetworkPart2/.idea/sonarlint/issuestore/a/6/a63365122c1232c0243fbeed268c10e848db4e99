@@ -1,0 +1,63 @@
+
+‹
+java:S1192Ç"GDefine a constant instead of duplicating this literal "logout" 4 times.(øĞ‹ç8„°à€2J$2084e471-91ac-4f0a-9d73-b03cbc3a874b
+Ÿ
+java:S1192‡"VDefine a constant instead of duplicating this literal "yyyy-MM-dd HH:mm:ss a" 3 times.(Õ±È™ıÿÿÿÿ8†°à€2J$a6f5c456-683a-4f75-b8f4-e86240e752ad
+–
+java:S1192³"MDefine a constant instead of duplicating this literal "accounts.txt" 3 times.( …Æ ùÿÿÿÿ8†°à€2J$32dfa38e-cff5-4b27-9c9c-3aa1f72d8b85
+‰
+java:S1192|"GDefine a constant instead of duplicating this literal "Active" 4 times.(Ù˜ÙR8†°à€2J$43ee9c1c-3fd7-4c8b-b136-d61928c23db7
+”	java:S117¯"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«ëÒ­8‰°à€2J$701ef37e-76de-400e-9f17-a9b9013f59ab
+™	java:S117°"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ãˆ¨Éûÿÿÿÿ8‰°à€2J$145eba5c-2856-4d4f-880c-3d599224d493
+¬
+java:S1488Ê"cImmediately return this expression instead of assigning it to the temporary variable "randomColor".(Ğ¹¿Ùøÿÿÿÿ8‹°à€2J$97921591-ec41-4594-8c72-dfab00316787
+
+java:S2095ı"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(®Ç†´8³¸à€2J$3a6bbdac-023b-4bce-8a80-ddaa20288b7a
+
+java:S2095Ô"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(ëëÜ—8³¸à€2J$e2bfc029-72c8-4f25-bf24-27c8b884a432
+•
+java:S2095Ç"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(‚£®Éıÿÿÿÿ8³¸à€2J$1a20ceb7-14c2-463f-8ddd-e1bf61990301
+•
+java:S2095³"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.( …Æ ùÿÿÿÿ8²¸à€2J$dde088cb-d4e6-4256-9c14-394f1aeee4c0
+{
+java:S2589ã"7Remove this expression which always evaluates to "true"(…–Ê”8´¸à€2J$58ff5bda-3641-4968-9648-13ca1152b548
+š	java:S116+"SRename this field "local_Ip" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åç›’ûÿÿÿÿ8óŞºœ€2J$e97674be-2041-4571-b60f-25c58e9b4e45
+œ	java:S116,"URename this field "local_Port" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã¦õìÿÿÿÿÿ8õŞºœ€2J$d3daa549-6e08-4e03-b7e4-d824bc83cdbf
+œ	java:S116/"ZRename this field "remot_IPAddress" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÑÅ³ğ8öŞºœ€2J$a838ab4d-ffa6-4207-8b76-b355e7084211
+•	java:S1160"SRename this field "S_buffer" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ü—¨¯8÷Şºœ€2J$86a44f34-7fe4-460d-9f7e-f630c0bb00b2
+”	java:S1162"SRename this field "R_buffer" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø¥Ÿ08ùŞºœ€2J$cc86e38b-82c8-4089-bc5a-1e9e441cab0c
+ 	java:S1163"YRename this field "receive_packet" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãœµ‚üÿÿÿÿ8úŞºœ€2J$4d673009-3c98-4987-9293-3d3bcf690bf3
+›	java:S1167"ZRename this field "DataInputStream" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬±ë8ûŞºœ€2J$c9c693a7-975c-48a9-8314-d53d2b54bcc9
+œ
+java:S1845w"TRename field "username" to prevent any misunderstanding/clash with field "userName".(³ÓÉ øÿÿÿÿ8ıŞºœ€2J$87db954d-9dd4-48f1-9ba0-5d982505646c
+s	java:S106Ó"+Replace this use of System.out by a logger.(ÿÁÛŒûÿÿÿÿ8İ¸à€2J$6b5f7cb7-f3b9-4379-8cf8-a0f491c8cda6
+n	java:S106®"+Replace this use of System.out by a logger.(©İÕš8ö¸à€2J$74f2e68e-17fd-4e82-bd8a-1576f6427c95
+›
+java:S3776¶"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(³à¿Ÿıÿÿÿÿ8ø¸à€2J$9f5d4c85-c907-4c7e-82cd-a717ae26853c
+u
+java:S1172¶",Remove this unused method parameter "event".(³à¿Ÿıÿÿÿÿ8ù¸à€2J$92c61176-d9f2-4cc7-b293-43b549e314c7
+„	java:S125Ø"<This block of commented-out lines of code should be removed.(ŸùÕ‹ÿÿÿÿÿ8ÿ¸à€2J$3942c272-4b75-4866-9c70-bb62e0430245
+p
+java:S1602ë",Remove useless curly braces around statement(ÃÉş©8‚¹à€2J$b2744142-831f-4b86-87ed-59e884a0af04
+‚
+java:S1117©"?Rename "remotePort" which hides the field declared at line 101.(ÉâÍ8™¹à€2J$981cf340-8edf-44b9-98ef-676612457e9a
+š
+java:S3457­"Q%n should be used in place of \n to produce the platform-specific line separator.(µñíøÿÿÿÿ8›¹à€2J$80f589ae-eb33-424a-985b-f09538bb24d0
+u
+java:S1172Ú"1Remove this unused method parameter "mouseEvent".(Ö‘Â§8 ¹à€2J$72fbe590-6f27-4ade-8df6-f8508d9347d5
+
+java:S1117€"=Rename "username" which hides the field declared at line 118.(ûÂ¶Î8¦¹à€2J$68beb364-d0d8-4b9f-ac37-b751938325fa
+a
+java:S2119Ä"Save and re-use this "Random".(¼İÅf8µ¹à€2J$5b4e1f1e-416e-42bd-b316-997234847b11
+u
+java:S1602ì",Remove useless curly braces around statement(¶º„¾ûÿÿÿÿ8»¹à€2J$cc9b8bfe-d7e1-43f7-ba1e-1bca97c92f10
+Š
+java:S1128"BRemove this unused import 'javax.swing.text.BadLocationException'.(îäÍûÿÿÿÿ8áºœ€2J$52cf29fe-d42e-435f-9db1-a6b01fb24d79
+{
+java:S1128"3Remove this unused import 'javax.swing.text.Style'.(¤¦Ëıÿÿÿÿ8áºœ€2J$f95db223-f042-4398-bb64-f6fb316d060f
+
+java:S1128"<Remove this unused import 'javax.swing.text.StyleConstants'.(é€€Ñ8Ÿáºœ€2J$5dd45a4c-8b9b-4cb5-8c38-e10eeb5bdfc7
+„
+java:S1128"<Remove this unused import 'javax.swing.text.StyledDocument'.(ˆ¼ğÒøÿÿÿÿ8¡áºœ€2J$274ab9da-dd75-4a72-9336-a544f49f6f47
+h
+java:S1128"%Remove this unused import 'java.awt'.(ï´µ©8¤áºœ€2J$c2865ae9-c006-4fc3-816b-7a6d33ab9385

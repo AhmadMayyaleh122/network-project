@@ -20,7 +20,7 @@ public class HelloApplication extends Application {
         Scene scene1 = new Scene(fxmlLoader1.load(), 769, 717);
         stage1.setTitle("Hello!");
         stage1.setScene(scene1);
-        stage1.show();//yazeed
+        stage1.show();//yazeed hi
     }
 
     public static void main(String[] args) {

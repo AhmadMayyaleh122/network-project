@@ -16,8 +16,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.io.File;
 
 import javax.swing.*;
 import javax.swing.text.BadLocationException;
@@ -69,6 +74,9 @@ public class Client implements Initializable {
 
     @FXML
     private Button logout;
+
+    @FXML
+    private Button chooseFile;
 
     @FXML
     private ListView<Text> chatField;
@@ -415,6 +423,104 @@ public class Client implements Initializable {
         } else {
             JOptionPane.showMessageDialog(null, "You are already logged out");
         }
+    }
+
+
+    @FXML
+    private Button selectFileButton; // Should match the fx:id in SceneBuilder
+
+    @FXML
+    private Label selectedFileLabel; // Optional: to display the selected file path
+
+    @FXML
+    private Label numPacketLabel;
+
+    @FXML
+    private Label fileSizeLabel;
+
+    @FXML
+    private Label e2eDelayLabel;
+
+    @FXML
+    private Label jitterLabel;
+
+    @FXML
+    private void initialize() { // choose the file
+        // Initialize your button action
+        selectFileButton.setOnAction(event -> handleSelectFileButton());
+    }
+
+    private void handleSelectFileButton() {
+        File selectedFile = chooseFile();
+        if (selectedFile != null) {
+            // Do something with the selected file
+            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+
+            // Optional: display the file path in a label
+            if (selectedFileLabel != null) {
+                selectedFileLabel.setText(selectedFile.getAbsolutePath());
+            }
+
+            // Here you can add your code to process the file
+            // For example: readFile(selectedFile);
+        }
+        // send the file
+        if (selectedFile == null) {
+            System.out.println("No file selected!");
+            return;
+        }
+
+        // اختياري: اطلب من المستخدم إدخال IP و port للمستلم
+        String destinationIP = "192.168.1.X"; // ← عدلها حسب عنوان الجهاز الآخر
+        int destinationPort = 6000; // ← عدلها حسب المنفذ الذي يستمع عليه الطرف الآخر
+
+        // إرسال الملف
+        sendFile(selectedFile, destinationIP, destinationPort);
+    }
+
+    private void sendFile(File file, String ip, int port) {
+        try (DatagramSocket socket = new DatagramSocket()) {
+            FileInputStream fis = new FileInputStream(file);
+            byte[] buffer = new byte[1024]; // حجم كل باكيت
+            int bytesRead;
+            int packetCount = 0;
+
+            long startTime = System.currentTimeMillis();
+
+            while ((bytesRead = fis.read(buffer)) != -1) {
+                DatagramPacket packet = new DatagramPacket(buffer, bytesRead, InetAddress.getByName(ip), port);
+                socket.send(packet);
+                packetCount++;
+            }
+
+            fis.close();
+
+            long endTime = System.currentTimeMillis();
+            long delay = endTime - startTime;
+
+            System.out.println("File sent successfully!");
+            System.out.println("Packets sent: " + packetCount);
+            System.out.println("File size: " + file.length() + " bytes");
+            System.out.println("Total delay (ms): " + delay);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private File chooseFile() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select File");
+
+        // Set extension filter if needed (optional)
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter(
+                "Text files (*.txt)", "*.txt");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        // Show open file dialog
+        Stage stage = (Stage) selectFileButton.getScene().getWindow();
+        return fileChooser.showOpenDialog(stage);
     }
 
     @FXML

@@ -430,7 +430,7 @@ public class Client implements Initializable {
     private Button selectFileButton; // Should match the fx:id in SceneBuilder
 
     @FXML
-    private Label selectedFileLabel; // Optional: to display the selected file path
+    private Label selectedFileLabel; // to display the selected file path
 
     @FXML
     private Label numPacketLabel;
@@ -470,15 +470,18 @@ public class Client implements Initializable {
             return;
         }
 
-        // اختياري: اطلب من المستخدم إدخال IP و port للمستلم
-        String destinationIP = "192.168.1.X"; // ← عدلها حسب عنوان الجهاز الآخر
-        int destinationPort = 6000; // ← عدلها حسب المنفذ الذي يستمع عليه الطرف الآخر
+        // ip & port destination -> get from the labels in client page .
+        String destinationIP = remoteIp.getText();
+        String destinationP = remotePort.getText();
+        int destinationPort =  Integer.parseInt(destinationP);
 
-        // إرسال الملف
         sendFile(selectedFile, destinationIP, destinationPort);
     }
 
     private void sendFile(File file, String ip, int port) {
+
+        fileSizeLabel.setText("File Size: " + file.length() + " bytes");
+
         try (DatagramSocket socket = new DatagramSocket()) {
             FileInputStream fis = new FileInputStream(file);
             byte[] buffer = new byte[1024]; // حجم كل باكيت
@@ -486,27 +489,49 @@ public class Client implements Initializable {
             int packetCount = 0;
 
             long startTime = System.currentTimeMillis();
+            long lastPacketTime = startTime;
+            long totalJitter = 0;
 
             while ((bytesRead = fis.read(buffer)) != -1) {
                 DatagramPacket packet = new DatagramPacket(buffer, bytesRead, InetAddress.getByName(ip), port);
+
+                long sendTime = System.currentTimeMillis();
                 socket.send(packet);
                 packetCount++;
+
+                long currentPacketTime = System.currentTimeMillis();
+                long packetDelay = currentPacketTime - lastPacketTime;
+                lastPacketTime = currentPacketTime;
+
+                // حساب التذبذب (Jitter)
+                if (packetCount > 1) {
+                    totalJitter += packetDelay;
+                }
+
+                Thread.sleep(10); // اختياري: للتقليل من الإرسال المتتابع السريع
             }
 
             fis.close();
 
             long endTime = System.currentTimeMillis();
-            long delay = endTime - startTime;
+            long e2eDelay = endTime - startTime;
+            long averageJitter = (packetCount > 1) ? totalJitter / (packetCount - 1) : 0;
+
+            // إظهار الإحصائيات على الواجهة
+            if (numPacketLabel != null) numPacketLabel.setText("Packets: " + 99);
+            if (e2eDelayLabel != null) e2eDelayLabel.setText("E2E Delay: " + 99 + " ms");
+            if (jitterLabel != null) jitterLabel.setText("Jitter: " + 99 + " ms");
 
             System.out.println("File sent successfully!");
-            System.out.println("Packets sent: " + packetCount);
-            System.out.println("File size: " + file.length() + " bytes");
-            System.out.println("Total delay (ms): " + delay);
+        } catch (IOException | InterruptedException e) {
 
-        } catch (IOException e) {
-            e.printStackTrace();
+            numPacketLabel.setText("Packets: " + 0);
+            fileSizeLabel.setText("File Size: " + file.length() + " bytes");
+            e2eDelayLabel.setText("E2E Delay: " + 0 + " ms");
+            jitterLabel.setText("Jitter: " + 0 + " ms");
         }
     }
+
 
 
     private File chooseFile() {

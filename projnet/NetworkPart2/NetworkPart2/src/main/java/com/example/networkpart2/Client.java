@@ -526,9 +526,9 @@ public class Client implements Initializable {
             long averageJitter = (packetCount > 1) ? totalJitter / (packetCount - 1) : 0;
 
             // إظهار الإحصائيات على الواجهة
-            if (numPacketLabel != null) numPacketLabel.setText("Packets: " + 99);
-            if (e2eDelayLabel != null) e2eDelayLabel.setText("E2E Delay: " + 99 + " ms");
-            if (jitterLabel != null) jitterLabel.setText("Jitter: " + 99 + " ms");
+            if (numPacketLabel != null) numPacketLabel.setText("Packets: " + packetCount);
+            if (e2eDelayLabel != null) e2eDelayLabel.setText("E2E Delay: " + e2eDelay + " ms");
+            if (jitterLabel != null) jitterLabel.setText("Jitter: " + averageJitter + " ms");
 
             JOptionPane.showMessageDialog(null, "File sent successfully!");
         } catch (IOException | InterruptedException e) {

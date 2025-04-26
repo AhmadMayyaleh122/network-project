@@ -34,10 +34,7 @@ import java.io.*;
 import java.net.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.Random;
-import java.util.ResourceBundle;
-import java.util.StringTokenizer;
+import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
@@ -445,6 +442,9 @@ public class Client implements Initializable {
     private Label jitterLabel;
 
     @FXML
+    File file;
+
+    @FXML
     private void initialize() { // choose the file
         // Initialize your button action
         selectFileButton.setOnAction(event -> handleSelectFileButton());
@@ -452,6 +452,7 @@ public class Client implements Initializable {
 
     private void handleSelectFileButton() {
         File selectedFile = chooseFile();
+        file = selectedFile;
         if (selectedFile != null) {
             // Do something with the selected file
             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
@@ -460,28 +461,35 @@ public class Client implements Initializable {
             if (selectedFileLabel != null) {
                 selectedFileLabel.setText(selectedFile.getAbsolutePath());
             }
-
+            fileSizeLabel.setText("File Size: " + selectedFile.length() + " bytes");
             // Here you can add your code to process the file
             // For example: readFile(selectedFile);
         }
         // send the file
         if (selectedFile == null) {
-            System.out.println("No file selected!");
+
+            JOptionPane.showMessageDialog(null,"No file selected!");
+            selectedFileLabel.setText("No file");
+            fileSizeLabel.setText("");
             return;
         }
 
         // ip & port destination -> get from the labels in client page .
-        String destinationIP = remoteIp.getText();
-        String destinationP = remotePort.getText();
-        int destinationPort =  Integer.parseInt(destinationP);
 
-        sendFile(selectedFile, destinationIP, destinationPort);
+       // String destinationIP = remoteIp.getText();
+        //String destinationP = remotePort.getText();
+        //int destinationPort =  Integer.parseInt(destinationP);
+
+        //sendFile(selectedFile, destinationIP, destinationPort);
     }
 
-    private void sendFile(File file, String ip, int port) {
+    @FXML
+    private void sendFile() {
 
-        fileSizeLabel.setText("File Size: " + file.length() + " bytes");
-
+    if(!(remoteIp.getText().equals("")||remotePort.getText().equals(""))) {
+        String ip = remoteIp.getText();
+        String destinationP = remotePort.getText();
+        int port =  Integer.parseInt(destinationP);
         try (DatagramSocket socket = new DatagramSocket()) {
             FileInputStream fis = new FileInputStream(file);
             byte[] buffer = new byte[1024]; // حجم كل باكيت
@@ -522,7 +530,7 @@ public class Client implements Initializable {
             if (e2eDelayLabel != null) e2eDelayLabel.setText("E2E Delay: " + 99 + " ms");
             if (jitterLabel != null) jitterLabel.setText("Jitter: " + 99 + " ms");
 
-            System.out.println("File sent successfully!");
+            JOptionPane.showMessageDialog(null, "File sent successfully!");
         } catch (IOException | InterruptedException e) {
 
             numPacketLabel.setText("Packets: " + 0);
@@ -530,6 +538,13 @@ public class Client implements Initializable {
             e2eDelayLabel.setText("E2E Delay: " + 0 + " ms");
             jitterLabel.setText("Jitter: " + 0 + " ms");
         }
+
+    }
+    else{
+
+
+        JOptionPane.showMessageDialog(null,"You should enter Remote Port and Remote IP");
+    }
     }
 
 

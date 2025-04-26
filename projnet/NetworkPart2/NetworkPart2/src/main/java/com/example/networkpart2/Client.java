@@ -32,6 +32,7 @@ import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.io.*;
 import java.net.*;
+import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -485,68 +486,73 @@ public class Client implements Initializable {
 
     @FXML
     private void sendFile() {
+        if (!(remoteIp.getText().equals("") || remotePort.getText().equals(""))) {
+            String ip = remoteIp.getText();
+            String destinationP = remotePort.getText();
+            int port = Integer.parseInt(destinationP);
+            try (DatagramSocket socket = new DatagramSocket()) {
+                FileInputStream fis = new FileInputStream(file);
+                byte[] buffer = new byte[1024];
+                int bytesRead;
+                int packetCount = 0;
 
-    if(!(remoteIp.getText().equals("")||remotePort.getText().equals(""))) {
-        String ip = remoteIp.getText();
-        String destinationP = remotePort.getText();
-        int port =  Integer.parseInt(destinationP);
-        try (DatagramSocket socket = new DatagramSocket()) {
-            FileInputStream fis = new FileInputStream(file);
-            byte[] buffer = new byte[1024]; // حجم كل باكيت
-            int bytesRead;
-            int packetCount = 0;
+                long startTime = System.currentTimeMillis();
+                long lastPacketTime = startTime;
+                long totalJitter = 0;
 
-            long startTime = System.currentTimeMillis();
-            long lastPacketTime = startTime;
-            long totalJitter = 0;
 
-            while ((bytesRead = fis.read(buffer)) != -1) {
-                DatagramPacket packet = new DatagramPacket(buffer, bytesRead, InetAddress.getByName(ip), port);
+                String fileInitMsg = "FILE:" + file.getName();
+                byte[] initData = fileInitMsg.getBytes();
+                DatagramPacket initPacket = new DatagramPacket(initData, initData.length, InetAddress.getByName(ip), port);
+                socket.send(initPacket);
 
-                long sendTime = System.currentTimeMillis();
-                socket.send(packet);
-                packetCount++;
+                Thread.sleep(10);
 
-                long currentPacketTime = System.currentTimeMillis();
-                long packetDelay = currentPacketTime - lastPacketTime;
-                lastPacketTime = currentPacketTime;
 
-                // حساب التذبذب (Jitter)
-                if (packetCount > 1) {
-                    totalJitter += packetDelay;
+                while ((bytesRead = fis.read(buffer)) != -1) {
+                    DatagramPacket packet = new DatagramPacket(buffer, bytesRead, InetAddress.getByName(ip), port);
+                    socket.send(packet);
+                    packetCount++;
+
+                    long currentPacketTime = System.currentTimeMillis();
+                    long packetDelay = currentPacketTime - lastPacketTime;
+                    lastPacketTime = currentPacketTime;
+
+                    if (packetCount > 1) {
+                        totalJitter += packetDelay;
+                    }
+
+                    Thread.sleep(10);
                 }
 
-                Thread.sleep(10); // اختياري: للتقليل من الإرسال المتتابع السريع
+
+                String eofMessage = "EOF";
+                byte[] eofData = eofMessage.getBytes();
+                DatagramPacket eofPacket = new DatagramPacket(eofData, eofData.length, InetAddress.getByName(ip), port);
+                socket.send(eofPacket);
+
+                fis.close();
+
+                long endTime = System.currentTimeMillis();
+                long e2eDelay = endTime - startTime;
+                long averageJitter = (packetCount > 1) ? totalJitter / (packetCount - 1) : 0;
+
+                if (numPacketLabel != null) numPacketLabel.setText("Packets: " + packetCount);
+                if (e2eDelayLabel != null) e2eDelayLabel.setText("E2E Delay: " + e2eDelay + " ms");
+                if (jitterLabel != null) jitterLabel.setText("Jitter: " + averageJitter + " ms");
+
+                JOptionPane.showMessageDialog(null, "File sent successfully!");
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
+                numPacketLabel.setText("Packets: " + 0);
+                fileSizeLabel.setText("File Size: " + file.length() + " bytes");
+                e2eDelayLabel.setText("E2E Delay: " + 0 + " ms");
+                jitterLabel.setText("Jitter: " + 0 + " ms");
             }
-
-            fis.close();
-
-            long endTime = System.currentTimeMillis();
-            long e2eDelay = endTime - startTime;
-            long averageJitter = (packetCount > 1) ? totalJitter / (packetCount - 1) : 0;
-
-            // إظهار الإحصائيات على الواجهة
-            if (numPacketLabel != null) numPacketLabel.setText("Packets: " + packetCount);
-            if (e2eDelayLabel != null) e2eDelayLabel.setText("E2E Delay: " + e2eDelay + " ms");
-            if (jitterLabel != null) jitterLabel.setText("Jitter: " + averageJitter + " ms");
-
-            JOptionPane.showMessageDialog(null, "File sent successfully!");
-        } catch (IOException | InterruptedException e) {
-
-            numPacketLabel.setText("Packets: " + 0);
-            fileSizeLabel.setText("File Size: " + file.length() + " bytes");
-            e2eDelayLabel.setText("E2E Delay: " + 0 + " ms");
-            jitterLabel.setText("Jitter: " + 0 + " ms");
+        } else {
+            JOptionPane.showMessageDialog(null, "You should enter Remote Port and Remote IP");
         }
-
     }
-    else{
-
-
-        JOptionPane.showMessageDialog(null,"You should enter Remote Port and Remote IP");
-    }
-    }
-
 
 
     private File chooseFile() {
@@ -757,27 +763,37 @@ public class Client implements Initializable {
         }
     }
 
+
+
+
     void receive() {
         try {
             if (t) {
-                byte[] buffer = new byte[1024]; // Adjust the buffer size as needed
+                byte[] buffer = new byte[1024];
                 receive_packet = new DatagramPacket(buffer, buffer.length);
                 socket.receive(receive_packet);
                 String msg = new String(receive_packet.getData(), 0, receive_packet.getLength());
+
+                if (msg.startsWith("FILE:")) {
+
+                    String fileName = msg.substring(5);
+                    saveIncomingFile(fileName);
+                    return;
+                }
+
                 if (msg.equals("logout")) {
                     return;
                 }
+
                 InetAddress S_IPAddress = receive_packet.getAddress();
                 int Sport = receive_packet.getPort();
-
                 LocalDateTime now = LocalDateTime.now();
                 String s1 = "[" + now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss a")) + "]" + msg + " From " + Sport + "\n";
 
-                // Update JavaFX UI components on the JavaFX Application Thread
                 Platform.runLater(() -> {
                     Text text = new Text(s1);
                     text.setFill(getUserColor(Sport));
-                    chatField.getItems().add(text); // Assuming chatField is your ListView
+                    chatField.getItems().add(text);
                     String s = S_IPAddress.getHostAddress();
                     status.setText("Received From IP= " + s + ", port: " + Sport);
                 });
@@ -786,6 +802,93 @@ public class Client implements Initializable {
             ex.printStackTrace();
         }
     }
+
+
+    private void saveIncomingFile(String fileName) {
+        try {
+
+            String defaultDirPath = "C:\\ReceivedFiles\\";
+            File defaultDir = new File(defaultDirPath);
+
+            if (!defaultDir.exists()) {
+                defaultDir.mkdirs();
+            }
+
+            int packetCount = 0;
+            int totalBytes = 0;
+
+            long startTime = System.currentTimeMillis();
+
+            File defaultFile = new File(defaultDirPath + fileName);
+            FileOutputStream fos = new FileOutputStream(defaultFile);
+
+            while (true) {
+                byte[] fileBuffer = new byte[1024];
+                DatagramPacket filePacket = new DatagramPacket(fileBuffer, fileBuffer.length);
+                socket.receive(filePacket);
+
+                String content = new String(filePacket.getData(), 0, filePacket.getLength());
+                if (content.equals("EOF")) {
+                    break;
+                }
+
+                fos.write(filePacket.getData(), 0, filePacket.getLength());
+                packetCount++;
+                totalBytes += filePacket.getLength();
+            }
+            fos.close();
+
+            long endTime = System.currentTimeMillis();
+            long e2eDelay = endTime - startTime;
+
+            int finalPacketCount = packetCount;
+            int finalTotalBytes = totalBytes;
+            Platform.runLater(() -> {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("File Received");
+                alert.setHeaderText("File received successfully!");
+                alert.setContentText("Do you want to change the save location?");
+
+                ButtonType yesButton = new ButtonType("Yes");
+                ButtonType noButton = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+                alert.getButtonTypes().setAll(yesButton, noButton);
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.isPresent() && result.get() == yesButton) {
+                    FileChooser fileChooser = new FileChooser();
+                    fileChooser.setInitialFileName(fileName);
+                    Stage stage = (Stage) chatField.getScene().getWindow();
+                    File selectedFile = fileChooser.showSaveDialog(stage);
+
+                    if (selectedFile != null) {
+                        try {
+                            Files.copy(defaultFile.toPath(), selectedFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+                            defaultFile.delete();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
+                if (fileSizeLabel != null) fileSizeLabel.setText("File Size: " + finalTotalBytes + " bytes");
+                if (numPacketLabel != null) numPacketLabel.setText("Packets: " + finalPacketCount);
+                if (e2eDelayLabel != null) e2eDelayLabel.setText("E2E Delay: " + e2eDelay + " ms");
+                if (jitterLabel != null) jitterLabel.setText("");
+
+                JOptionPane.showMessageDialog(null,
+                        "File received successfully!\n" +
+                                "Packets Received: " + finalPacketCount + "\n" +
+                                "File Size: " + finalTotalBytes + " bytes\n" +
+                                "E2E Delay: " + e2eDelay + " ms");
+            });
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 
     private Color getRandomColor() {
         Random random = new Random();

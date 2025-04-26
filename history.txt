@@ -14,3 +14,6 @@
 	abood: hello yazeed
 	ahmad: ggg
 	yazeed: kkkk
+	abood: ابعتلي الملف
+	ahmad: حاضر 
+	ahmad: حاضر

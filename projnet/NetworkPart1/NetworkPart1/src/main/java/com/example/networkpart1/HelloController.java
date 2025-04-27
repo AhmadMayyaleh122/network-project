@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -34,6 +35,15 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class HelloController implements Initializable {
+
+    @FXML
+    private Button BackButton;
+
+    @FXML
+    private AnchorPane Pane1;
+
+    @FXML
+    private AnchorPane Pane2;
 
     @FXML
     private Button archiveMsg;
@@ -65,7 +75,7 @@ public class HelloController implements Initializable {
     private TextField remotePort;
 
     @FXML
-    private TextArea sendMessageField;
+    private TextField sendMessageField;
 
     @FXML
     private Button sendMsg;
@@ -99,6 +109,15 @@ public class HelloController implements Initializable {
             Server();
         }
     }
+
+    @FXML
+    public void ONback() {
+    Pane2.setVisible(false);
+    Pane1.setVisible(true);
+    }
+
+
+
     private void Client(){
         try
         {
@@ -220,6 +239,8 @@ public class HelloController implements Initializable {
                 t =new Thread(conn);
                 t.start();
             }
+            Pane2.setVisible(true);
+            Pane1.setVisible(false);
         }catch(java.lang.NumberFormatException e)
         {
             showAlert( "Please enter Local IP and local port correctly");

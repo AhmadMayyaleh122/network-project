@@ -11,25 +11,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 
 import javax.swing.*;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.Style;
-import javax.swing.text.StyleConstants;
-import javax.swing.text.StyledDocument;
-import java.awt.*;
 import java.io.*;
 import java.net.*;
 import java.nio.file.Files;
@@ -112,7 +105,7 @@ public class Client implements Initializable {
 
 
     @FXML
-    private TextArea sendMessageField;
+    private TextField sendMessageField;
 
     @FXML
     private Label ttttt;
@@ -130,6 +123,14 @@ public class Client implements Initializable {
     private TextField username;
     @FXML
     private Label lastLoginLbl;
+    @FXML
+    private AnchorPane Pane1;
+
+    @FXML
+    private AnchorPane Pane2;
+
+    @FXML
+    private AnchorPane Pane3;
 
 
     private String previousStatus = "Active"; // Variable to store the previous status
@@ -267,6 +268,31 @@ public class Client implements Initializable {
     }
 
     @FXML
+    public void onBacktologin() {
+        Pane1.setVisible(true);
+        Pane2.setVisible(false);
+        Pane3.setVisible(false);
+    }
+    @FXML
+    public void onBacktochat() {
+        Pane1.setVisible(false);
+        Pane2.setVisible(true);
+        Pane3.setVisible(false);
+    }
+
+    @FXML
+    public void onsendfile() {
+        Pane1.setVisible(false);
+        Pane2.setVisible(false);
+        Pane3.setVisible(true);
+    }
+
+
+
+
+
+
+    @FXML
     void onLogin(ActionEvent event) {
         if (username.getText().isEmpty() || serverIp.getText().isEmpty() || localIp.getText().isEmpty()
                 || localPort.getText().isEmpty() || serverPort.getText().isEmpty()) {
@@ -326,6 +352,9 @@ public class Client implements Initializable {
 
                     // Display success message
                     JOptionPane.showMessageDialog(null, "You are logged in successfully");
+                    Pane1.setVisible(false);
+                    Pane2.setVisible(true);
+                    Pane3.setVisible(false);
                     loggedin = true;
                      timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
                         secondsElapsed++; // زيادة عدد الثواني المنقضية
@@ -443,14 +472,20 @@ public class Client implements Initializable {
     private Label jitterLabel;
 
     @FXML
-    File file;
+    private TextField remoteIp1;
 
     @FXML
-    private void initialize() { // choose the file
-        // Initialize your button action
-        selectFileButton.setOnAction(event -> handleSelectFileButton());
-    }
+    private TextField remotePort1;
 
+    @FXML
+    File file;
+
+//    @FXML
+//    private void initialize() { // choose the file
+//        // Initialize your button action
+//        selectFileButton.setOnAction(event -> handleSelectFileButton());
+//    }
+    @FXML
     private void handleSelectFileButton() {
         File selectedFile = chooseFile();
         file = selectedFile;
@@ -486,9 +521,9 @@ public class Client implements Initializable {
 
     @FXML
     private void sendFile() {
-        if (!(remoteIp.getText().equals("") || remotePort.getText().equals(""))) {
-            String ip = remoteIp.getText();
-            String destinationP = remotePort.getText();
+        if (!(remoteIp1.getText().equals("") || remotePort1.getText().equals(""))) {
+            String ip = remoteIp1.getText();
+            String destinationP = remotePort1.getText();
             int port = Integer.parseInt(destinationP);
             try (DatagramSocket socket = new DatagramSocket()) {
                 FileInputStream fis = new FileInputStream(file);
@@ -869,7 +904,9 @@ public class Client implements Initializable {
                         }
                     }
                 }
-
+                Pane1.setVisible(false);
+                Pane2.setVisible(false);
+                Pane3.setVisible(true);
                 if (fileSizeLabel != null) fileSizeLabel.setText("File Size: " + finalTotalBytes + " bytes");
                 if (numPacketLabel != null) numPacketLabel.setText("Packets: " + finalPacketCount);
                 if (e2eDelayLabel != null) e2eDelayLabel.setText("E2E Delay: " + e2eDelay + " ms");

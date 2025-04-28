@@ -5,13 +5,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="357.0" prefWidth="431.0" style="-fx-background-color: #D3D3D3;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.networkpart2.SignUp">
+<AnchorPane prefHeight="357.0" prefWidth="431.0" style="-fx-background-color: #dad7cd;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.networkpart2.SignUp">
    <children>
       <Label layoutX="32.0" layoutY="187.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 19px; -fx-text-fill: #34495e;" text="Password:" />
-      <TextField fx:id="userName" layoutX="149.0" layoutY="93.0" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: #ffffff; -fx-border-color: #bdc3c7; -fx-border-radius: 30;" />
-      <TextField fx:id="password" layoutX="149.0" layoutY="178.0" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: #ffffff; -fx-border-color: #bdc3c7; -fx-border-radius: 30;" />
+      <TextField fx:id="userName" layoutX="149.0" layoutY="95.0" prefHeight="42.0" prefWidth="210.0" stylesheets="@chat.css" />
+      <TextField fx:id="password" layoutX="149.0" layoutY="178.0" prefHeight="42.0" prefWidth="210.0" stylesheets="@chat.css" />
       <Label layoutX="28.0" layoutY="102.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 19px; -fx-text-fill: #34495e;" text="UserName:" />
-      <Button layoutX="164.0" layoutY="247.0" mnemonicParsing="false" onAction="#onSaveUser" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #228B22; -fx-background-radius: 50; -fx-text-fill: #ffffff; -fx-font-size: 19px; -fx-padding: 10px;" text="Save" />
+      <Button layoutX="164.0" layoutY="247.0" mnemonicParsing="false" onAction="#onSaveUser" prefHeight="42.0" prefWidth="130.0" stylesheets="@chat.css" text="Save" />
       <Label layoutX="110.0" layoutY="32.0" prefHeight="31.0" prefWidth="254.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 24px; -fx-text-fill: #34495e;" text="Sign Up A New User" />
    </children>
 </AnchorPane>

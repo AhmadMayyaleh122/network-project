@@ -14,23 +14,24 @@ public class HelloApplication extends Application {
 
         Stage stage4=new Stage();
         FXMLLoader fxmlLoader4 = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene4 = new Scene(fxmlLoader4.load(), 1100, 800);
+        Scene scene4 = new Scene(fxmlLoader4.load(), 820, 730);
         stage4.setTitle("Client 1");
         stage4.setScene(scene4);
         stage4.show();
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1100, 800);
+        Scene scene = new Scene(fxmlLoader.load(), 820, 730);
         stage.setTitle("Client 2");
         stage.setScene(scene);
         stage.show();
 
 
-        Stage stage3=new Stage();
-        FXMLLoader fxmlLoader3 = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene3 = new Scene(fxmlLoader3.load(), 1100, 800);
-        stage3.setTitle("Client3");
-        stage3.setScene(scene3);
-        stage3.show();
+//        Stage stage3=new Stage();
+//        FXMLLoader fxmlLoader3 = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+//        Scene scene3 = new Scene(fxmlLoader3.load(), 820, 730);
+//        stage3.setTitle("Client3");
+//        stage3.setScene(scene3);
+//        stage3.show();
 
         Stage stage2=new Stage();
         FXMLLoader fxmlLoader1 = new FXMLLoader(HelloApplication.class.getResource("Server.fxml"));

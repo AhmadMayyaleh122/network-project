@@ -13,21 +13,21 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="805.0" style="-fx-background-color: #D3D3D3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.networkpart2.Server">
    <children>
-      <TextField fx:id="Port" layoutX="31.0" layoutY="89.0" onAction="#onStart" prefHeight="42.0" prefWidth="150.0" style="-fx-border-color: #bdc3c7; -fx-background-color: #ffffff; -fx-padding: 5px;" />
-      <Button layoutX="202.0" layoutY="89.0" mnemonicParsing="false" onAction="#onStart" prefHeight="46.0" prefWidth="150.0" style="-fx-font-size: 16px; -fx-background-radius: 20px; -fx-background-color: #228B22; -fx-padding: 10px;" text="Start Listening" textFill="WHITE" />
-      <ChoiceBox fx:id="interfaceBox" layoutX="30.0" layoutY="176.0" prefHeight="27.0" prefWidth="340.0" style="-fx-background-color: #ffffff; -fx-border-color: #bdc3c7;" />
-      <Label layoutX="29.0" layoutY="58.0" prefHeight="26.0" prefWidth="142.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 20px; -fx-text-fill: #34495e;" text="Port Number:" />
-      <Label layoutX="31.0" layoutY="142.0" prefHeight="27.0" prefWidth="124.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 20px; -fx-text-fill: #34495e;" text="InterFace:" />
-      <Label layoutX="341.0" layoutY="10.0" prefHeight="46.0" prefWidth="124.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 44px; -fx-text-fill: #34495e;" text="server">
+      <TextField fx:id="Port" layoutX="31.0" layoutY="89.0" onAction="#onStart" prefHeight="42.0" prefWidth="150.0" stylesheets="@chat.css" />
+      <Button layoutX="202.0" layoutY="89.0" mnemonicParsing="false" onAction="#onStart" prefHeight="46.0" prefWidth="150.0" stylesheets="@chat.css" text="Start Listening" textFill="WHITE" />
+      <ChoiceBox fx:id="interfaceBox" layoutX="30.0" layoutY="176.0" prefHeight="27.0" prefWidth="340.0" stylesheets="@chat.css" />
+      <Label layoutX="29.0" layoutY="58.0" prefHeight="26.0" prefWidth="142.0" stylesheets="@chat.css" text="Port Number:" />
+      <Label layoutX="31.0" layoutY="142.0" prefHeight="27.0" prefWidth="124.0" stylesheets="@chat.css" text="InterFace:" />
+      <Label layoutX="341.0" layoutY="10.0" prefHeight="46.0" prefWidth="124.0" stylesheets="@chat.css" text="server">
          <font>
             <Font name="Arial" size="8.0" />
          </font></Label>
-      <TextFlow fx:id="serverMessages" layoutX="32.0" layoutY="221.0" prefHeight="277.0" prefWidth="340.0" style="-fx-background-color: #ffffff; -fx-border-color: #bdc3c7; -fx-border-radius: 10;" />
-      <Label layoutX="22.0" layoutY="524.0" prefHeight="15.0" prefWidth="78.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 23px; -fx-text-fill: #34495e;" text="Status :" />
-      <ListView fx:id="onlineUsers" layoutX="429.0" layoutY="176.0" prefHeight="278.0" prefWidth="318.0" style="-fx-background-color: #ffffff; -fx-border-color: #bdc3c7; -fx-border-radius: 10;" />
+      <TextFlow fx:id="serverMessages" layoutX="32.0" layoutY="221.0" prefHeight="277.0" prefWidth="340.0" stylesheets="@chat.css" />
+      <Label layoutX="22.0" layoutY="524.0" prefHeight="15.0" prefWidth="78.0" stylesheets="@chat.css" text="Status :" />
+      <ListView fx:id="onlineUsers" layoutX="429.0" layoutY="176.0" prefHeight="278.0" prefWidth="318.0" stylesheets="@chat.css" />
       <Label fx:id="status" layoutX="116.0" layoutY="524.0" prefHeight="30.0" prefWidth="480.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 23px; -fx-text-fill: #34495e;" />
-      <Button fx:id="addUser" layoutX="429.0" layoutY="475.0" mnemonicParsing="false" onAction="#onAddUser" prefHeight="40.0" prefWidth="318.0" style="-fx-background-color: #111; -fx-text-fill: #ffffff; -fx-font-size: 16px; -fx-padding: 10px; -fx-background-radius: 20px;" text="Add A New User" />
-      <Label layoutX="500.0" layoutY="120.0" style="-fx-font-family: 'Book Antiqua Bold Italic'; -fx-font-size: 29px; -fx-text-fill: #34495e;" text="Online Users" />
+      <Button fx:id="addUser" layoutX="429.0" layoutY="475.0" mnemonicParsing="false" onAction="#onAddUser" prefHeight="40.0" prefWidth="318.0" stylesheets="@chat.css" text="Add A New User" />
+      <Label layoutX="500.0" layoutY="120.0" stylesheets="@chat.css" text="Online Users" />
       <ImageView fitHeight="66.0" fitWidth="67.0" layoutX="725.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@./server (1).png" />

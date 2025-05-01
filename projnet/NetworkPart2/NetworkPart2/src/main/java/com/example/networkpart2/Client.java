@@ -161,18 +161,22 @@ public class Client implements Initializable {
 
     private void updateUserStatus(String newStatus) {
         Platform.runLater(() -> {
+            String currentStatus = interfaceBox2.getValue();
+            if (newStatus.equals(currentStatus)) {
+                return; // ما تغيرتش الحالة، ما تعمل إشي
+            }
+
             ObservableList<String> users = onlineUsers.getItems();
             boolean statusUpdated = false;
 
-            // Update the status in the ObservableList
             for (int i = 0; i < users.size(); i++) {
                 String userDetail = users.get(i);
                 String[] tokens = userDetail.split(",");
-                if (tokens[0].equalsIgnoreCase(username.getText())) { // Assuming the first token is the username
+                if (tokens[0].equalsIgnoreCase(username.getText())) {
                     String updatedUserDetail = tokens[0] + "," + tokens[1] + "," + tokens[2] + "," + newStatus;
                     users.set(i, updatedUserDetail);
                     statusUpdated = true;
-                    break; // Exit loop once the user is found and updated
+                    break;
                 }
             }
 
@@ -185,7 +189,6 @@ public class Client implements Initializable {
                     while ((line = reader.readLine()) != null) {
                         String[] parts = line.split(" ");
                         if (parts.length >= 4 && parts[0].equalsIgnoreCase(username.getText())) {
-                            // Update the last login time for the user
                             line = parts[0] + " " + parts[1] + " " + getCurrentTime() + " " + newStatus;
                         }
                         fileContent.append(line).append("\n");
@@ -197,14 +200,12 @@ public class Client implements Initializable {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
                 sendToServer("STATUS_UPDATE," + username.getText() + "," + newStatus);
                 interfaceBox2.setValue(newStatus);
-
-
             }
         });
     }
-
 
     @FXML
     void onDeleteConv(ActionEvent event) {
@@ -977,18 +978,35 @@ public class Client implements Initializable {
         }, 30, TimeUnit.SECONDS);
     }
 
-    private void registerActivityListeners() {
-        Platform.runLater(() -> {
-            chatField.getScene().setOnMouseMoved(event -> {
+//    private void registerActivityListeners() {
+//        Platform.runLater(() -> {
+//            chatField.getScene().setOnMouseMoved(event -> {
+//                updateUserStatus(previousStatus); // Restore previous status
+//                resetInactivityTimer(); // Reset inactivity timer
+//            });
+//            chatField.getScene().setOnKeyPressed(event -> {
+//                updateUserStatus(previousStatus); // Restore previous status
+//                resetInactivityTimer(); // Reset inactivity timer
+//            });
+//        });
+//    }
+private void registerActivityListeners() {
+    chatField.sceneProperty().addListener((obs, oldScene, newScene) -> {
+        if (newScene != null) {
+            newScene.setOnMouseMoved(event -> {
                 updateUserStatus(previousStatus); // Restore previous status
                 resetInactivityTimer(); // Reset inactivity timer
             });
-            chatField.getScene().setOnKeyPressed(event -> {
+            newScene.setOnKeyPressed(event -> {
                 updateUserStatus(previousStatus); // Restore previous status
                 resetInactivityTimer(); // Reset inactivity timer
             });
-        });
-    }
+        }
+    });
+}
+
+
+
 
 
     private String formatTime(int totalSeconds) {
